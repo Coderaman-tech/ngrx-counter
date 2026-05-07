@@ -1,7 +1,6 @@
-<h2>NGRX Counter App</h2>
-
-<h3>Counter : {{ counter$ | async}}</h3>
-
-<button (click)="inc()">+</button>
-<button (click)="dec()">-</button>
-<button (click)="resetCount()">Reset</button>
+<nav>
+  <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="counter" routerLinkActive="active">Counter</a>
+  <a routerLink="form" routerLinkActive="active">Form</a>
+</nav>
+<router-outlet />

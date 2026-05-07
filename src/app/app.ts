@@ -1,32 +1,11 @@
-import { Component, signal } from '@angular/core';
-import {Store} from '@ngrx/store';
-import { decrement, increment, reset } from './store/counter.actions';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { counterFeature } from './store/counter.feature';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-
-  //async pipe in template will subscribe to this observable and get the latest value of counter from the store
-  counter$!:Observable<number>;
-
-  constructor(private store: Store){ 
-    this.counter$=this.store.select(counterFeature.selectCounterState);
-  }
-
-  inc(){
-    this.store.dispatch(increment());
-  }
-  dec(){
-    this.store.dispatch(decrement());
-  }
-  resetCount(){
-    this.store.dispatch(reset());
-  }
-}
+export class App {}
