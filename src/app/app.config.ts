@@ -4,6 +4,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideState, provideStore } from '@ngrx/store';
 import { counterFeature } from './store/counter.feature';
 import { routes } from './app.routes';
+import { formFeature } from './form/form.feature';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +14,8 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideStore(),
     // feature for counter state
-    provideState(counterFeature)
+    provideState(counterFeature),
+    provideState(formFeature) // feature for form state
     // if any other feature is added then add here
     
 ]

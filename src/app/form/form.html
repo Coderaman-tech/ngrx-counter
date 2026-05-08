@@ -1,1 +1,26 @@
-<p>form works!</p>
+<h2>Ngrx with Forms</h2>
+@if(form$ | async; as form){
+    <input 
+    type="text"
+    [value]="form.name" 
+    placeholder="Enter Name"
+    (input)="updatedField('name', $event.target.value)"
+    />
+    <br/>
+    <br/>
+     <input 
+    type="email"
+    [value]="form.email" 
+    placeholder="Enter Email"
+    (input)="updatedField('email', $event.target.value)"
+    />
+    <br/>
+    <br/>
+    
+    <button (click)="resetForm()">Reset Form</button>
+    <hr/>
+
+    <h4>Form Preview</h4>
+    <pre>{{form | json}}</pre>
+
+}
