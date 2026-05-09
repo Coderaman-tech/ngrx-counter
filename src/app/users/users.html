@@ -1,0 +1,17 @@
+<p>NgRx Effects</p>
+
+<button (click)="load()">Load Data</button>
+
+@if(users$ | async; as state) {
+  @if(state.loading) {
+    <p>Loading...</p>
+  }
+  @if(state.error) {
+    <p>Error: {{ state.error }}</p>
+  }
+  <ul>
+    @for(user of state.users;track user.id) {
+      <li>{{ user.name }} - {{user.email}}</li>
+    }
+  </ul>
+}
